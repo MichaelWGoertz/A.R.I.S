@@ -1,0 +1,47 @@
+[0.000000] (-) TimerEvent: {}
+[0.000785] (aris_demo) JobQueued: {'identifier': 'aris_demo', 'dependencies': OrderedDict()}
+[0.000857] (aris_demo) JobStarted: {'identifier': 'aris_demo'}
+[0.099711] (-) TimerEvent: {}
+[0.200027] (-) TimerEvent: {}
+[0.300323] (-) TimerEvent: {}
+[0.394507] (aris_demo) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/aris_demo', 'build', '--build-base', '/workspace/aris/build/aris_demo/build', 'install', '--record', '/workspace/aris/build/aris_demo/install.log', '--install-scripts', '$base/lib/aris_demo', '--single-version-externally-managed', 'install_data'], 'cwd': '/workspace/aris/src/aris_demo', 'env': {'HOSTNAME': 'aris-dev', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/robot', 'OLDPWD': '/workspace/aris/src', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'DEBIAN_FRONTEND': 'noninteractive', 'PWD': '/workspace/aris/build/aris_demo', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspace/aris/build/aris_demo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/aris/install/aris_demo/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1'}, 'shell': False}
+[0.400456] (-) TimerEvent: {}
+[0.500817] (-) TimerEvent: {}
+[0.531857] (aris_demo) StdoutLine: {'line': b'running egg_info\n'}
+[0.532346] (aris_demo) StdoutLine: {'line': b'creating ../../build/aris_demo/aris_demo.egg-info\n'}
+[0.532467] (aris_demo) StdoutLine: {'line': b'writing ../../build/aris_demo/aris_demo.egg-info/PKG-INFO\n'}
+[0.532722] (aris_demo) StdoutLine: {'line': b'writing dependency_links to ../../build/aris_demo/aris_demo.egg-info/dependency_links.txt\n'}
+[0.532889] (aris_demo) StdoutLine: {'line': b'writing entry points to ../../build/aris_demo/aris_demo.egg-info/entry_points.txt\n'}
+[0.532935] (aris_demo) StdoutLine: {'line': b'writing requirements to ../../build/aris_demo/aris_demo.egg-info/requires.txt\n'}
+[0.532964] (aris_demo) StdoutLine: {'line': b'writing top-level names to ../../build/aris_demo/aris_demo.egg-info/top_level.txt\n'}
+[0.532997] (aris_demo) StdoutLine: {'line': b"writing manifest file '../../build/aris_demo/aris_demo.egg-info/SOURCES.txt'\n"}
+[0.535493] (aris_demo) StdoutLine: {'line': b"reading manifest file '../../build/aris_demo/aris_demo.egg-info/SOURCES.txt'\n"}
+[0.536350] (aris_demo) StdoutLine: {'line': b"writing manifest file '../../build/aris_demo/aris_demo.egg-info/SOURCES.txt'\n"}
+[0.536621] (aris_demo) StdoutLine: {'line': b'running build\n'}
+[0.536807] (aris_demo) StdoutLine: {'line': b'running build_py\n'}
+[0.537091] (aris_demo) StdoutLine: {'line': b'creating /workspace/aris/build/aris_demo/build\n'}
+[0.537151] (aris_demo) StdoutLine: {'line': b'creating /workspace/aris/build/aris_demo/build/lib\n'}
+[0.537308] (aris_demo) StdoutLine: {'line': b'creating /workspace/aris/build/aris_demo/build/lib/aris_demo\n'}
+[0.537586] (aris_demo) StdoutLine: {'line': b'copying aris_demo/hello_robot.py -> /workspace/aris/build/aris_demo/build/lib/aris_demo\n'}
+[0.537850] (aris_demo) StdoutLine: {'line': b'copying aris_demo/__init__.py -> /workspace/aris/build/aris_demo/build/lib/aris_demo\n'}
+[0.538027] (aris_demo) StdoutLine: {'line': b'running install\n'}
+[0.538616] (aris_demo) StdoutLine: {'line': b'running install_lib\n'}
+[0.539470] (aris_demo) StdoutLine: {'line': b'creating /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo\n'}
+[0.539717] (aris_demo) StdoutLine: {'line': b'copying /workspace/aris/build/aris_demo/build/lib/aris_demo/hello_robot.py -> /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo\n'}
+[0.539882] (aris_demo) StdoutLine: {'line': b'copying /workspace/aris/build/aris_demo/build/lib/aris_demo/__init__.py -> /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo\n'}
+[0.540775] (aris_demo) StdoutLine: {'line': b'byte-compiling /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo/hello_robot.py to hello_robot.cpython-310.pyc\n'}
+[0.541503] (aris_demo) StdoutLine: {'line': b'byte-compiling /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo/__init__.py to __init__.cpython-310.pyc\n'}
+[0.541638] (aris_demo) StdoutLine: {'line': b'running install_data\n'}
+[0.541705] (aris_demo) StdoutLine: {'line': b'creating /workspace/aris/install/aris_demo/share/ament_index\n'}
+[0.541763] (aris_demo) StdoutLine: {'line': b'creating /workspace/aris/install/aris_demo/share/ament_index/resource_index\n'}
+[0.541952] (aris_demo) StdoutLine: {'line': b'creating /workspace/aris/install/aris_demo/share/ament_index/resource_index/packages\n'}
+[0.542044] (aris_demo) StdoutLine: {'line': b'copying resource/aris_demo -> /workspace/aris/install/aris_demo/share/ament_index/resource_index/packages\n'}
+[0.542105] (aris_demo) StdoutLine: {'line': b'copying package.xml -> /workspace/aris/install/aris_demo/share/aris_demo\n'}
+[0.542160] (aris_demo) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.543005] (aris_demo) StdoutLine: {'line': b'Copying ../../build/aris_demo/aris_demo.egg-info to /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo-0.0.0-py3.10.egg-info\n'}
+[0.544960] (aris_demo) StdoutLine: {'line': b'running install_scripts\n'}
+[0.558501] (aris_demo) StdoutLine: {'line': b'Installing hello_robot script to /workspace/aris/install/aris_demo/lib/aris_demo\n'}
+[0.558802] (aris_demo) StdoutLine: {'line': b"writing list of installed files to '/workspace/aris/build/aris_demo/install.log'\n"}
+[0.575530] (aris_demo) CommandEnded: {'returncode': 0}
+[0.582616] (aris_demo) JobEnded: {'identifier': 'aris_demo', 'rc': 0}
+[0.583602] (-) EventReactorShutdown: {}

@@ -1,0 +1,16 @@
+.git
+.gitignore
+.vscode/
+.idea/
+.devcontainer/
+
+build/
+install/
+log/
+
+__pycache__/
+*.pyc
+*.pyo
+
+.DS_Store
+Thumbs.db

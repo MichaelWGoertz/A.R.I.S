@@ -1,0 +1,25 @@
+{
+    "name": "A.R.I.S. ROS 2 Humble",
+
+    "dockerComposeFile": "../compose.yaml",
+
+    "service": "robot-dev",
+
+    "workspaceFolder": "/workspace/aris",
+
+    "shutdownAction": "stopCompose",
+
+    "remoteUser": "robot",
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-iot.vscode-ros",
+                "ms-vscode.cmake-tools"
+            ]
+        }
+    }
+}

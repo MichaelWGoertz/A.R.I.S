@@ -1,0 +1,32 @@
+services:
+  robot-dev:
+
+    # Build using the Dockerfile in this repository
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+      # Match the Linux user's permissions
+      args:
+        USER_UID: ${LOCAL_UID:-1000}
+        USER_GID: ${LOCAL_GID:-1000}
+
+    # Give the container a recognizable name
+    hostname: aris-dev
+
+    # Connect the GitHub repository to Docker
+    volumes:
+      - .:/workspace/aris
+
+    # Default working directory
+    working_dir: /workspace/aris
+
+    # Keep the container running for VS Code
+    command: sleep infinity
+
+    # Enable interactive terminal access
+    stdin_open: true
+    tty: true
+
+    # Properly handle termination signals
+    init: true

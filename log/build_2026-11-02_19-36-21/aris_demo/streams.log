@@ -1,0 +1,37 @@
+[0.395s] Invoking command in '/workspace/aris/src/aris_demo': PYTHONPATH=/workspace/aris/build/aris_demo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/aris/install/aris_demo/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/aris_demo build --build-base /workspace/aris/build/aris_demo/build install --record /workspace/aris/build/aris_demo/install.log --install-scripts $base/lib/aris_demo --single-version-externally-managed install_data
+[0.531s] running egg_info
+[0.532s] creating ../../build/aris_demo/aris_demo.egg-info
+[0.532s] writing ../../build/aris_demo/aris_demo.egg-info/PKG-INFO
+[0.532s] writing dependency_links to ../../build/aris_demo/aris_demo.egg-info/dependency_links.txt
+[0.532s] writing entry points to ../../build/aris_demo/aris_demo.egg-info/entry_points.txt
+[0.532s] writing requirements to ../../build/aris_demo/aris_demo.egg-info/requires.txt
+[0.532s] writing top-level names to ../../build/aris_demo/aris_demo.egg-info/top_level.txt
+[0.532s] writing manifest file '../../build/aris_demo/aris_demo.egg-info/SOURCES.txt'
+[0.535s] reading manifest file '../../build/aris_demo/aris_demo.egg-info/SOURCES.txt'
+[0.536s] writing manifest file '../../build/aris_demo/aris_demo.egg-info/SOURCES.txt'
+[0.536s] running build
+[0.536s] running build_py
+[0.536s] creating /workspace/aris/build/aris_demo/build
+[0.536s] creating /workspace/aris/build/aris_demo/build/lib
+[0.536s] creating /workspace/aris/build/aris_demo/build/lib/aris_demo
+[0.537s] copying aris_demo/hello_robot.py -> /workspace/aris/build/aris_demo/build/lib/aris_demo
+[0.537s] copying aris_demo/__init__.py -> /workspace/aris/build/aris_demo/build/lib/aris_demo
+[0.537s] running install
+[0.538s] running install_lib
+[0.539s] creating /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo
+[0.539s] copying /workspace/aris/build/aris_demo/build/lib/aris_demo/hello_robot.py -> /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo
+[0.539s] copying /workspace/aris/build/aris_demo/build/lib/aris_demo/__init__.py -> /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo
+[0.540s] byte-compiling /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo/hello_robot.py to hello_robot.cpython-310.pyc
+[0.541s] byte-compiling /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo/__init__.py to __init__.cpython-310.pyc
+[0.541s] running install_data
+[0.541s] creating /workspace/aris/install/aris_demo/share/ament_index
+[0.541s] creating /workspace/aris/install/aris_demo/share/ament_index/resource_index
+[0.541s] creating /workspace/aris/install/aris_demo/share/ament_index/resource_index/packages
+[0.541s] copying resource/aris_demo -> /workspace/aris/install/aris_demo/share/ament_index/resource_index/packages
+[0.541s] copying package.xml -> /workspace/aris/install/aris_demo/share/aris_demo
+[0.541s] running install_egg_info
+[0.542s] Copying ../../build/aris_demo/aris_demo.egg-info to /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo-0.0.0-py3.10.egg-info
+[0.544s] running install_scripts
+[0.558s] Installing hello_robot script to /workspace/aris/install/aris_demo/lib/aris_demo
+[0.558s] writing list of installed files to '/workspace/aris/build/aris_demo/install.log'
+[0.575s] Invoked command in '/workspace/aris/src/aris_demo' returned '0': PYTHONPATH=/workspace/aris/build/aris_demo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/aris/install/aris_demo/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/aris_demo build --build-base /workspace/aris/build/aris_demo/build install --record /workspace/aris/build/aris_demo/install.log --install-scripts $base/lib/aris_demo --single-version-externally-managed install_data

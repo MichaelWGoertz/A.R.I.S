@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/aris_demo/aris_demo.egg-info
+writing ../../build/aris_demo/aris_demo.egg-info/PKG-INFO
+writing dependency_links to ../../build/aris_demo/aris_demo.egg-info/dependency_links.txt
+writing entry points to ../../build/aris_demo/aris_demo.egg-info/entry_points.txt
+writing requirements to ../../build/aris_demo/aris_demo.egg-info/requires.txt
+writing top-level names to ../../build/aris_demo/aris_demo.egg-info/top_level.txt
+writing manifest file '../../build/aris_demo/aris_demo.egg-info/SOURCES.txt'
+reading manifest file '../../build/aris_demo/aris_demo.egg-info/SOURCES.txt'
+writing manifest file '../../build/aris_demo/aris_demo.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /workspace/aris/build/aris_demo/build
+creating /workspace/aris/build/aris_demo/build/lib
+creating /workspace/aris/build/aris_demo/build/lib/aris_demo
+copying aris_demo/hello_robot.py -> /workspace/aris/build/aris_demo/build/lib/aris_demo
+copying aris_demo/__init__.py -> /workspace/aris/build/aris_demo/build/lib/aris_demo
+running install
+running install_lib
+creating /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo
+copying /workspace/aris/build/aris_demo/build/lib/aris_demo/hello_robot.py -> /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo
+copying /workspace/aris/build/aris_demo/build/lib/aris_demo/__init__.py -> /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo
+byte-compiling /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo/hello_robot.py to hello_robot.cpython-310.pyc
+byte-compiling /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /workspace/aris/install/aris_demo/share/ament_index
+creating /workspace/aris/install/aris_demo/share/ament_index/resource_index
+creating /workspace/aris/install/aris_demo/share/ament_index/resource_index/packages
+copying resource/aris_demo -> /workspace/aris/install/aris_demo/share/ament_index/resource_index/packages
+copying package.xml -> /workspace/aris/install/aris_demo/share/aris_demo
+running install_egg_info
+Copying ../../build/aris_demo/aris_demo.egg-info to /workspace/aris/install/aris_demo/lib/python3.10/site-packages/aris_demo-0.0.0-py3.10.egg-info
+running install_scripts
+Installing hello_robot script to /workspace/aris/install/aris_demo/lib/aris_demo
+writing list of installed files to '/workspace/aris/build/aris_demo/install.log'

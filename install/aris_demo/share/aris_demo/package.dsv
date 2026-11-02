@@ -1,0 +1,6 @@
+source;share/aris_demo/hook/pythonpath.ps1
+source;share/aris_demo/hook/pythonpath.dsv
+source;share/aris_demo/hook/pythonpath.sh
+source;share/aris_demo/hook/ament_prefix_path.ps1
+source;share/aris_demo/hook/ament_prefix_path.dsv
+source;share/aris_demo/hook/ament_prefix_path.sh
