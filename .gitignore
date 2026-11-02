@@ -1,0 +1,18 @@
+# Local environment
+.env
+
+# ROS 2 build files
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code local settings
+.vscode/
+
+# Operating system
+.DS_Store
+Thumbs.db
