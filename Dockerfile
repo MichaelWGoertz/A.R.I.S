@@ -1,74 +1,56 @@
-# ============================================================
-# A.R.I.S. Robotics Development Environment
-# ROS 2 Humble / Ubuntu 22.04
-# ============================================================
 
-# Use the official ROS 2 Humble desktop image
-FROM osrf/ros:humble-desktop-full
+# ROS 2 Jazzy (Ubuntu 24.04 LTS)
+FROM osrf/ros:jazzy-desktop-full
 
-# Prevent interactive prompts during package installation
-ENV DEBIAN_FRONTEND=noninteractive
-
-# ============================================================
-# 1. Install development dependencies
-# ============================================================
-
-RUN apt-get update && apt-get install -y \
-    # General development tools
+# ── System dependencies ────────────────────────────────────────────────────────
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
+    # Build tools
     build-essential \
     cmake \
     git \
-    curl \
-    wget \
-    nano \
-    vim \
-    gdb \
+    # Python development and ROS build tools
     python3-pip \
     python3-colcon-common-extensions \
     python3-rosdep \
     python3-vcstool \
-    python3-argcomplete \
+    # ROS visualization and robot state
+    ros-jazzy-joint-state-publisher \
+    ros-jazzy-joint-state-publisher-gui \
+    ros-jazzy-robot-state-publisher \
+    ros-jazzy-xacro \
+    ros-jazzy-tf2-tools \
+    # ROS navigation (Nav2)
+    ros-jazzy-navigation2 \
+    ros-jazzy-nav2-bringup \
+    ros-jazzy-nav2-map-server \
+    ros-jazzy-nav2-amcl \
+    # Localization and mapping
+    ros-jazzy-slam-toolbox \
+    ros-jazzy-robot-localization \
+    # Gazebo simulation (Gazebo Harmonic)
+    ros-jazzy-ros-gz \
+    ros-jazzy-gz-ros2-control \
+    ros-jazzy-ros2-control \
+    ros-jazzy-ros2-controllers \
+    # Additional ROS utilities
+    ros-jazzy-backward-ros \
+    # C++ libraries
+    libgflags-dev \
+    nlohmann-json3-dev \
+    # Handy utilities
+    bash-completion \
+    curl \
+    nano \
+    vim \
+    wget \
     && rm -rf /var/lib/apt/lists/*
 
-# ============================================================
-# 2. Create a non-root development user
-# ============================================================
+# ── Initialize rosdep ─────────────────────────────────────────────────────────
+RUN rosdep update
 
-# These values are passed in during the Docker build
-ARG USERNAME=robot
-ARG USER_UID=1000
-ARG USER_GID=1000
+# ── Auto-source ROS on every shell ────────────────────────────────────────────
+RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc \
+    && echo "export ROS_DOMAIN_ID=0" >> /root/.bashrc
 
-RUN if ! getent group ${USER_GID} > /dev/null; then \
-        groupadd --gid ${USER_GID} ${USERNAME}; \
-    fi && \
-    useradd --uid ${USER_UID} \
-            --gid ${USER_GID} \
-            --create-home \
-            --shell /bin/bash \
-            ${USERNAME}
-
-# ============================================================
-# 3. Configure the ROS 2 environment
-# ============================================================
-
-ENV ROS_DISTRO=humble
-
-# Automatically source ROS 2 whenever a Bash terminal opens
-RUN echo "source /opt/ros/humble/setup.bash" >> /home/${USERNAME}/.bashrc && \
-    echo "if [ -f /workspace/aris/install/setup.bash ]; then source /workspace/aris/install/setup.bash; fi" >> /home/${USERNAME}/.bashrc
-
-# ============================================================
-# 4. Configure the workspace
-# ============================================================
-
-WORKDIR /workspace/aris
-
-# Give the development user ownership of its home directory
-RUN chown -R ${USERNAME}:$(id -gn ${USERNAME}) /home/${USERNAME}
-
-# Run the container as the development user instead of root
-USER ${USERNAME}
-
-# Start in Bash when the container is launched
-CMD ["bash"]
+# ── Default shell entrypoint ──────────────────────────────────────────────────
+CMD ["/bin/bash"]
