@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4"
+      BTCPP_version="4.10">
+  <BehaviorTree ID="Untitled">
+    <Sequence>
+      <IsRobotCalibrated/>
+      <GetNextLocation/>
+      <SetNavigationGoal/>
+      <NavigateToLocation/>
+      <CheckNavigationResult/>
+      <UpdateCurrentLocation/>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Condition ID="CheckNavigationResult"
+               editable="true"/>
+    <Action ID="GetNextLocation"
+            editable="true"/>
+    <Condition ID="IsRobotCalibrated"
+               editable="true"/>
+    <Action ID="NavigateToLocation"
+            editable="true"/>
+    <Action ID="SetNavigationGoal"
+            editable="true"/>
+    <Action ID="UpdateCurrentLocation"
+            editable="true"/>
+  </TreeNodesModel>
+
+</root>

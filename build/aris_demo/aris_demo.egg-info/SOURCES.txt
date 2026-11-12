@@ -10,7 +10,11 @@ setup.py
 ../../build/aris_demo/aris_demo.egg-info/zip-safe
 aris_demo/__init__.py
 aris_demo/hello_robot.py
+aris_demo.egg-info/PKG-INFO
+aris_demo.egg-info/SOURCES.txt
+aris_demo.egg-info/dependency_links.txt
+aris_demo.egg-info/entry_points.txt
+aris_demo.egg-info/requires.txt
+aris_demo.egg-info/top_level.txt
+aris_demo.egg-info/zip-safe
 resource/aris_demo
-test/test_copyright.py
-test/test_flake8.py
-test/test_pep257.py

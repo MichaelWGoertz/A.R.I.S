@@ -1,3 +1,2 @@
 [console_scripts]
 hello_robot = aris_demo.hello_robot:main
-
