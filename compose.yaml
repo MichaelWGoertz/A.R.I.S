@@ -14,9 +14,18 @@ services:
     # Give the container a recognizable name
     hostname: aris-dev
 
+    #GUI setup
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+      - WAYLAND_DISPLAY=${WAYLAND_DISPLAY:-wayland-0}
+      - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/mnt/wslg/runtime-dir}
+      - PULSE_SERVER=${PULSE_SERVER:-/mnt/wslg/PulseServer}
+
     # Connect the GitHub repository to Docker
     volumes:
       - .:/workspace/aris
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /mnt/wslg:/mnt/wslg
 
     # Default working directory
     working_dir: /workspace/aris
