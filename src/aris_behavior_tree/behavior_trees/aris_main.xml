@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root BTCPP_format="4"
-      BTCPP_version="4.10">
+      BTCPP_version="4.10"
+      main_tree_to_execute="main">
   <BehaviorTree ID="main">
     <ReactiveSequence>
-      <SubTree ID="main"
+      <SubTree ID="CollisionSafety"
                name="CollisionSafety"/>
-      <SubTree ID="main"
+      <SubTree ID="MissionExecution"
                name="MissionExecution"/>
     </ReactiveSequence>
   </BehaviorTree>
 
+  <BehaviorTree ID="CollisionSafety">
+    <AlwaysSuccess name="SafetyCheckPlaceholder"/>
+  </BehaviorTree>
+
+  <BehaviorTree ID="MissionExecution">
+    <Sequence name="NavigationMission">
+      <NavigateToPose x="1.0" y="0.0"/>
+    </Sequence>
+  </BehaviorTree>
+
   <!-- Description of Node Models (used by Groot) -->
-  <TreeNodesModel/>
+  <TreeNodesModel>
+    <Action ID="NavigateToPose">
+      <input_port name="x" default="0.0"/>
+      <input_port name="y" default="0.0"/>
+    </Action>
+  </TreeNodesModel>
 
 </root>
