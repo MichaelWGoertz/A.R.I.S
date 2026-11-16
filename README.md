@@ -22,10 +22,11 @@ This ensures that everyone develops using the same ROS 2 distribution, Ubuntu ve
 5. [Building and Running Docker](#building-and-running-docker)
 6. [Working in VS Code](#working-in-vs-code)
 7. [ROS 2 Workspace Setup](#ros-2-workspace-setup)
-8. [Daily Development Workflow](#daily-development-workflow)
-9. [Git and Team Collaboration](#git-and-team-collaboration)
-10. [Common Docker Commands](#common-docker-commands)
-11. [Troubleshooting](#troubleshooting)
+8. [Running the Gazebo Simulation](#running-the-gazebo-simulation)
+9. [Daily Development Workflow](#daily-development-workflow)
+10. [Git and Team Collaboration](#git-and-team-collaboration)
+11. [Common Docker Commands](#common-docker-commands)
+12. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -533,6 +534,102 @@ Launch a system:
 ```bash
 ros2 launch PACKAGE_NAME LAUNCH_FILE.launch.py
 ```
+
+---
+
+# Running the Gazebo Simulation
+
+The `aris_demo` package contains the robot URDF (`urdf/robot.urdf.xacro`), CAD meshes (`meshes/`), and Gazebo launch configuration (`launch/gazebo.launch.py`) with a differential-drive controller bridged to `/cmd_vel` and `/odom`.
+
+## 1. Prerequisites (GUI Display Support)
+
+Gazebo requires GUI forwarding from Docker to your host screen:
+
+- **Windows 11 (WSLg):** GUI apps work out of the box if WSL is up to date (`wsl --update` in PowerShell) and `DISPLAY` is forwarded in `compose.yaml`.
+- **Windows 10:** Install and run an X server such as VcXsrv (with **Disable access control** checked) before starting the container.
+- **Native Ubuntu:** Allow Docker access to your X session on the host before launching:
+  ```bash
+  xhost +local:docker
+  ```
+
+## 2. Build the Simulation Package
+
+Enter the running Docker container:
+
+```bash
+docker compose exec robot-dev bash
+```
+
+Inside `/workspace/aris`, build `aris_demo` with `--symlink-install` so edits to URDF or launch files take effect immediately without rebuilding:
+
+```bash
+cd /workspace/aris
+colcon build --packages-select aris_demo --symlink-install
+source install/setup.bash
+```
+
+*(If `colcon build` reports a `File exists` or missing symlink error from an earlier build, clear the cached folders first with `rm -rf build/aris_demo install/aris_demo` and re-run `colcon build`.)*
+
+## 3. Launch Gazebo
+
+Start the simulation inside the container:
+
+```bash
+ros2 launch aris_demo gazebo.launch.py
+```
+
+### Finding the Robot in Gazebo
+
+Because the CAD assembly origin is offset from `(0, 0, 0)`, the robot spawns slightly off-center from the world origin:
+
+1. Open the **Entity Tree** panel on the left side of the Gazebo window.
+2. Right-click **`aris_robot`** and select **Move To** to snap the camera to the robot.
+3. *(Optional)* Right-click **`aris_robot`** → **View → Collisions** to inspect the physics collision geometry.
+
+## 4. Drive the Robot with Keyboard Teleop
+
+Keep Gazebo running in your first terminal, then open a **second terminal** into the container:
+
+```bash
+docker compose exec robot-dev bash
+```
+
+If `teleop_twist_keyboard` is not yet installed in your container, install it:
+
+```bash
+sudo apt update && sudo apt install -y ros-$ROS_DISTRO-teleop-twist-keyboard
+```
+
+*(If running as `root` inside the container, omit `sudo`.)*
+
+Source the workspace and start keyboard control:
+
+```bash
+source /workspace/aris/install/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+### Teleop Controls
+
+| Key | Action |
+|---|---|
+| `i` | Drive forward |
+| `,` | Drive reverse |
+| `j` | Rotate counter-clockwise (skid-steer left) |
+| `l` | Rotate clockwise (skid-steer right) |
+| `k` | Stop |
+| `q` / `z` | Increase / decrease max linear and angular speed |
+
+*(Keep the terminal running `teleop_twist_keyboard` focused so it captures your keystrokes.)*
+
+## 5. Gazebo Troubleshooting
+
+- **Gazebo window fails to open or crashes on launch:** Verify `echo $DISPLAY` is non-empty inside the container. If GPU hardware acceleration fails inside WSL2, launch with software rendering:
+  ```bash
+  LIBGL_ALWAYS_SOFTWARE=1 ros2 launch aris_demo gazebo.launch.py
+  ```
+- **Robot does not move when pressing teleop keys:** Confirm `/cmd_vel` is bridged by running `ros2 topic info /cmd_vel` in a container terminal—both a publisher (`teleop_twist_keyboard`) and subscriber (`ros_gz_bridge`) should appear.
+- **Dirty `git status` after building:** Running `colcon build` updates local files in `build/`, `install/`, and `log/`. Always revert those folders (`git checkout -- build/ install/ log/`) before committing source changes in `src/`.
 
 ---
 
