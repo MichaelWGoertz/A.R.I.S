@@ -1,16 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root BTCPP_format="4"
-      BTCPP_version="4.10">
+      BTCPP_version="4.11">
+  <BehaviorTree ID="CollisionDetection">
+    <AlwaysSuccess/>
+  </BehaviorTree>
+
+  <BehaviorTree ID="FirstWeld">
+    <ReactiveFallback>
+      <Timeout msec="1000000000">
+        <DriveForward _description="Will drive forward at predetermined pace"/>
+      </Timeout>
+      <DetectPlate _description="Will return success if a plate is detected, publish plate location if one is found"/>
+    </ReactiveFallback>
+  </BehaviorTree>
+
+  <BehaviorTree ID="MissionExecution">
+    <Sequence>
+      <SubTree ID="Navigation"
+               _description="Subtree contianing logic to navigate between plates"/>
+      <SubTree ID="Welder"
+               _description="Subtree containing logic to do weld cycle"/>
+      <UpdateMap _description="Will update map with current estimated locaiton of node, along with success / failure with weld method"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="Navigation">
+    <Sequence>
+      <SubTree ID="FirstWeld"/>
+      <GetNextLocation/>
+      <PublishPlateLocation/>
+      <NavigateToLocation/>
+      <Fallback>
+        <DetectPlate/>
+        <PlateNotDetected/>
+      </Fallback>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="Startup">
+    <AlwaysSuccess/>
+  </BehaviorTree>
+
+  <BehaviorTree ID="Welder">
+    <Sequence>
+      <PublishWeldLocation _description="Take in current Robot Pose, figure out how we need to move to get welder over plate. Publish that as the new target location"/>
+      <NavigateToLocation _description="Navigate to current target location, returns the new position to Robot Pose variable"/>
+      <WeldCycle _description="Node runs logic for moving welder, activating welder, (cleaning welder?)"/>
+      <PublishWeightLocation _description="Take in current Robot Pose, figure out how we need to move to get weight over plate. Publish that as the new target location"/>
+      <NavigateToLocation _description="Navigate to current target location, returns the new position to Robot Pose variable"/>
+      <WeightCycle _description="Node runs logic for moving weight, (cleaning weight?)"/>
+    </Sequence>
+  </BehaviorTree>
+
   <BehaviorTree ID="main">
     <ReactiveSequence>
-      <SubTree ID="main"
-               name="CollisionSafety"/>
-      <SubTree ID="main"
-               name="MissionExecution"/>
+      <SubTree ID="Startup"
+               _description="Subtree containing logic for what robot will do when it boots up"/>
+      <SubTree ID="CollisionDetection"
+               _description="Always running tree - returns success if no obstacles in range that cause collision logic. Handles collision logic inside, then returns success when done"/>
+      <SubTree ID="MissionExecution"
+               _description="Runs all logic for normal robot actions (go to plate, weld plate)&#10;"/>
     </ReactiveSequence>
   </BehaviorTree>
 
   <!-- Description of Node Models (used by Groot) -->
-  <TreeNodesModel/>
+  <TreeNodesModel>
+    <Action ID="DetectPlate"
+            editable="true"/>
+    <Action ID="DriveForward"
+            editable="true"/>
+    <Action ID="GetNextLocation"
+            editable="true"/>
+    <Action ID="NavigateToLocation"
+            editable="true"/>
+    <Action ID="PlateNotDetected"
+            editable="true"/>
+    <Action ID="PublishPlateLocation"
+            editable="true"/>
+    <Action ID="PublishWeightLocation"
+            editable="true"/>
+    <Action ID="PublishWeldLocation"
+            editable="true"/>
+    <Action ID="UpdateMap"
+            editable="true"/>
+    <Action ID="WeightCycle"
+            editable="true"/>
+    <Action ID="WeldCycle"
+            editable="true"/>
+  </TreeNodesModel>
 
 </root>

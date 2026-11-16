@@ -3,7 +3,6 @@
       BTCPP_version="4.10">
   <BehaviorTree ID="Untitled">
     <Sequence>
-      <IsRobotCalibrated/>
       <GetNextLocation/>
       <SetNavigationGoal/>
       <NavigateToLocation/>
@@ -18,8 +17,6 @@
                editable="true"/>
     <Action ID="GetNextLocation"
             editable="true"/>
-    <Condition ID="IsRobotCalibrated"
-               editable="true"/>
     <Action ID="NavigateToLocation"
             editable="true"/>
     <Action ID="SetNavigationGoal"
