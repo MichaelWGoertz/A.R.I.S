@@ -3,3 +3,14 @@
 
 #file permissions not allowed
  sudo chown -R $USER:$USER .git
+
+ #pushing to git
+ git add .
+ git add location/to/file
+
+ git commit -m "message"
+ git push
+
+ #VS Code
+ code . #opens the entire folder in VSCode
+ code location/to/file #opens just the files you specify
